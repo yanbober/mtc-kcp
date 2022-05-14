@@ -1,0 +1,17 @@
+pluginManagement {
+    plugins {
+        id 'org.jetbrains.kotlin.jvm' version '1.6.20'
+    }
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'method-time-cost-plugin'
+
+include ':gradle-plugin'
+include ':kotlin-plugin'
+

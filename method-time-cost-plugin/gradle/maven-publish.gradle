@@ -1,0 +1,13 @@
+apply plugin: 'maven-publish'
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = project.ext.groupId
+                artifactId = project.ext.artifactId
+                version = project.ext.version
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.6.20'
+}
+
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.20"
+    compileOnly "org.jetbrains.kotlin:kotlin-compiler-embeddable:1.6.20"
+}
+
+project.ext {
+    groupId = "cn.yan.mtc"
+    artifactId = "mtc-kotlin-plugin"
+    version = "1.0.0"
+}
+apply from: rootProject.file('gradle/maven-publish.gradle')

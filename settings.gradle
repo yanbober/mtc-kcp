@@ -1,0 +1,11 @@
+//for local classpath
+includeBuild("method-time-cost-plugin") {
+    dependencySubstitution {
+        substitute module("cn.yan.mtc:mtc-gradle-plugin") using project(":gradle-plugin")
+        substitute module("cn.yan.mtc:mtc-kotlin-plugin") using project(":kotlin-plugin")
+    }
+}
+
+rootProject.name = 'MethodTimeCostKCP'
+
+include ':test-demo'

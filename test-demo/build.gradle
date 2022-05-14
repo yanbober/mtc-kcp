@@ -1,0 +1,27 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.6.20'
+    id 'application'
+    id 'cn.yan.gradle.mtc'
+}
+
+application {
+    mainClass = 'cn.yan.demo.UserRunKt'
+}
+
+sourceSets {
+    main.java.srcDirs = ['src/main/kotlin']
+    main.kotlin.srcDirs = ['src/main/kotlin']
+    main.resources.srcDirs = ['src/main/resources']
+}
+
+mtc {
+    enable = true
+    annotation = "cn.yan.anno.MTC"
+}
+
+group 'cn.yan'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.20"
+}
