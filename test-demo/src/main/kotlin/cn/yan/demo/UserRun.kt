@@ -24,6 +24,7 @@
 package cn.yan.demo
 
 import cn.yan.anno.MTC
+import kotlin.system.measureTimeMillis
 
 fun main() {
     prime()

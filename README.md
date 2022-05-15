@@ -1,7 +1,35 @@
 # mtc-kcp
 一个基于 Kotlin Compiler Plugin 实现的迷你方法耗时无侵入编译插件。也是一个用来学习 KCP 编写的好案例。
 
-ASM 修改前后对比：
+默认 kotlin 中对一段代码或方法的耗时计算提供了内置 inline 函数，我们使用方式如下（需要修改代码逻辑）：
+```kotlin
+val timeCost = measureTimeMillis {
+    //logic
+}
+print("time cost is: $timeCost")
+```
+此系列方法官方的实现源码如下：
+```kotlin
+public inline fun measureTimeMillis(block: () -> Unit): Long {
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
+    val start = System.currentTimeMillis()
+    block()
+    return System.currentTimeMillis() - start
+}
+
+public inline fun measureNanoTime(block: () -> Unit): Long {
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
+    val start = System.nanoTime()
+    block()
+    return System.nanoTime() - start
+}
+```
+
+使用此插件后我们可以通过 ASM 无侵入实现如下逻辑（以便在 release 版本中直接 disable）：
 ```kotlin
 fun beforeInjected() {
     //logic
