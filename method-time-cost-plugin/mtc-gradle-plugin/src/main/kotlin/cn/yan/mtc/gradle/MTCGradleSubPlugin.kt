@@ -32,14 +32,13 @@ import org.jetbrains.kotlin.gradle.plugin.*
 class MTCGradleSubPlugin: KotlinCompilerPluginSupportPlugin {
     override fun applyToCompilation(kotlinCompilation: KotlinCompilation<*>): Provider<List<SubpluginOption>> {
         val project = kotlinCompilation.target.project
-        project.logger.debug("MTCGradleSubPlugin applyToCompilation ...")
         return project.provider {
             val extension = project.extensions.findByType(MTCGradleExtension::class.java)
                 ?: MTCGradleExtension()
             if (extension.enable && extension.annotation.isEmpty()) {
                 error("MTC method time cost plugin is enabled, but no annotation class were set!")
             }
-            project.logger.debug("MTCGradleSubPlugin extension.enable is true and extension.annotation is not empty.")
+
             val options = mutableListOf<SubpluginOption>()
             options += SubpluginOption(key = "annotation", value = extension.annotation)
             options += SubpluginOption(key = "enable", value = extension.enable.toString())

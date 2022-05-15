@@ -7,6 +7,8 @@ afterEvaluate {
                 groupId = project.ext.groupId
                 artifactId = project.ext.artifactId
                 version = project.ext.version
+
+                from components.java
             }
         }
     }
