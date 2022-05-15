@@ -2,18 +2,20 @@ buildscript {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://jitpack.io' }
         gradlePluginPortal()
         mavenCentral()
     }
 
     dependencies {
-        classpath "com.github.yanbober.mtc-kcp:mtc-gradle-plugin:1.0.0"
+        classpath "com.github.yanbober.mtc-kcp:mtc-gradle-plugin:main-SNAPSHOT"
     }
 }
 
 allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://jitpack.io' }
         mavenCentral()
     }
 }

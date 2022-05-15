@@ -50,7 +50,7 @@ class MTCGradleSubPlugin: KotlinCompilerPluginSupportPlugin {
     override fun getPluginArtifact(): SubpluginArtifact = SubpluginArtifact(
         "com.github.yanbober.mtc-kcp",
         "mtc-kotlin-plugin",
-        "1.0.0")
+        "main-SNAPSHOT")
 
     override fun isApplicable(kotlinCompilation: KotlinCompilation<*>): Boolean {
         return kotlinCompilation.target.project.plugins.hasPlugin(MTCGradlePlugin::class.java)

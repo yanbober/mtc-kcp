@@ -16,6 +16,6 @@ dependencies {
 project.ext {
     groupId = "com.github.yanbober.mtc-kcp"
     artifactId = "mtc-kotlin-plugin"
-    version = "1.0.0"
+    version = "main-SNAPSHOT"
 }
 apply from: rootProject.file('gradle/maven-publish.gradle')
