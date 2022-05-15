@@ -1,7 +1,5 @@
-jdk:
-  - openjdk11
 install:
   - echo "Running a custom publish command for maven."
   - cd method-time-cost-plugin
-  - ./../gradlew :gradle-plugin:publishToMavenLocal
-  - ./../gradlew :kotlin-plugin:publishToMavenLocal
+  - ./../gradlew :mtc-gradle-plugin:publishToMavenLocal
+  - ./../gradlew :mtc-kotlin-plugin:publishToMavenLocal

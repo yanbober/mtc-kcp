@@ -7,7 +7,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "cn.yan.mtc:mtc-gradle-plugin:1.0.0"
+        classpath "com.github.yanbober.mtc-kcp:mtc-gradle-plugin:1.0.0"
     }
 }
 

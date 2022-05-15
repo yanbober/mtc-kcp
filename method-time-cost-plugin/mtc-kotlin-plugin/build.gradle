@@ -14,7 +14,7 @@ dependencies {
 }
 
 project.ext {
-    groupId = "cn.yan.mtc"
+    groupId = "com.github.yanbober.mtc-kcp"
     artifactId = "mtc-kotlin-plugin"
     version = "1.0.0"
 }

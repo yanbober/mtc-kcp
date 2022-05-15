@@ -48,7 +48,7 @@ class MTCGradleSubPlugin: KotlinCompilerPluginSupportPlugin {
 
     override fun getCompilerPluginId(): String = "cn.yan.gradle.mtc.kotlin"
     override fun getPluginArtifact(): SubpluginArtifact = SubpluginArtifact(
-        "cn.yan.mtc",
+        "com.github.yanbober.mtc-kcp",
         "mtc-kotlin-plugin",
         "1.0.0")
 

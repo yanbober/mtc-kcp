@@ -12,6 +12,6 @@ pluginManagement {
 
 rootProject.name = 'method-time-cost-plugin'
 
-include ':gradle-plugin'
-include ':kotlin-plugin'
+include ':mtc-gradle-plugin'
+include ':mtc-kotlin-plugin'
 
