@@ -54,19 +54,28 @@ fun afterInjected() {
 
 ### 其他项目中使用方式
 
-1. 在你的 root build.gradle 中添加如下脚本片段：
+1. 修改`method-time-cost-plugin/gradle/maven-publish.gradle`脚本中 repositories 为自己本地或远程仓库。
+2. 对 method-time-cost-plugin 中的两个 module 执行 maven-publish plugin 的 publish 发布命令进行发布。
+3. 在你使用的项目 root build.gradle 中添加如下脚本片段：
 ```groovy
 buildscript {
     repositories {
-        maven { url 'https://jitpack.io' }
+        maven { url new File(rootProject.projectDir, "/method-time-cost-plugin/repo/").toURI() } //替换为自己maven
     }
 
     dependencies {
-        classpath "com.github.yanbober.mtc-kcp:mtc-gradle-plugin:main-SNAPSHOT"
+        // 主插件，编译项目时自己会从 project 的 repositories 中下载依赖的 subplugin
+        classpath "com.github.yanbober.mtc-kcp:mtc-gradle-plugin:main-SNAPSHOT" 
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url new File(rootProject.projectDir, "/method-time-cost-plugin/repo/").toURI() } //替换为自己maven
     }
 }
 ```
-2. 在你的 build.gradle 中添加如下脚本片段：
+4. 在你的 build.gradle 中添加如下脚本片段：
 ```groovy
 plugins {
     id 'cn.yan.gradle.mtc'
@@ -77,13 +86,13 @@ mtc {
     annotation = "cn.yan.anno.MTC"  //你用来打印方法耗时的注解类名
 }
 ```
-3. 在你的代码中使用：
+5. 在你的代码中使用：
 ```kotlin
 @MTC fun prime(): Int {
     return (0..10_000_000).asSequence().take(10_000_000).last()
 }
 ```
-4. 编译运行结果如下：
+6. 编译运行结果如下：
 ```text
 > Task :test-demo:run
 [MTC] cn/yan/demo/UserRunKt#prime --> cost time: (164ms)

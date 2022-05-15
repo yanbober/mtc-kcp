@@ -11,5 +11,10 @@ afterEvaluate {
                 from components.java
             }
         }
+        repositories {
+            maven {
+                url = new File(rootProject.projectDir, "repo").toURI()
+            }
+        }
     }
 }

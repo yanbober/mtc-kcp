@@ -1,9 +1,8 @@
 buildscript {
     repositories {
-        mavenLocal()
+        maven { url new File(rootProject.projectDir, "/method-time-cost-plugin/repo/").toURI() }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://jitpack.io' }
         gradlePluginPortal()
         mavenCentral()
     }
@@ -15,9 +14,9 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenLocal()
+        def path = new File(rootProject.projectDir, "/method-time-cost-plugin/repo/").toURI()
+        maven { url path }
         maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://jitpack.io' }
         mavenCentral()
     }
 }
